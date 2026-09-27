@@ -1,0 +1,8 @@
+# Build artifacts
+*.o
+01-hello-gas/hi
+02-hello-nasm/hi
+03-fibonacci/fib
+04-print-int/print_int
+05-max-of-three/maxofthree
+a.out
