@@ -7,13 +7,15 @@ No newline is added — the string must contain `\n` itself if you want one.
 
 ```sh
 make
-./print_str
+./print-str
 ```
 
 Expected output:
 
 ```
 Hello World
+This is string two
+THREE
 ```
 
 ## How it works
