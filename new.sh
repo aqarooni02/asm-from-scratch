@@ -19,5 +19,10 @@ lastnum=$(printf "%02d" "$(($last + 1))") # crazy padding
 
 echo Adding project \#$lastnum $newfilename
 
-mkdir "$lastnum-$newfilename"
+FILENAME="$lastnum-$newfilename"
+mkdir $FILENAME
 
+cd "$FILENAME"
+touch main.c "$newfilename".asm
+cp ../Makefile_Template Makefile
+sed -i "1i NAME=$newfilename" Makefile
