@@ -6,12 +6,12 @@ print_str:
     mov rcx, rdi        ; stores starting pointer
     xor rdx, rdx        ; reset rdx to 0
     cmp byte [rcx], 0   ; compare "byte" needed
-    jz .donecount
+    jz .print
     .loop:
         inc rcx
         cmp byte [rcx], 0
         jnz .loop
-    .donecount:
+    .print:
         mov rax, 1      ; syscall write
         mov rsi, rdi    ; write rdi (Start pointer) to char * second parameter
         mov rdi, 1      ; stdout first parameter now rdi was overriden with 1
