@@ -15,7 +15,7 @@ sorted=$( printf "%s\n" "$dirs" | sort -n )
 last=$(printf "%s\n" "$sorted" | tail -n 1)
 # echo $last
 
-lastnum=$(($last + 1))
+lastnum=$(printf "%02d" "$(($last + 1))") # crazy padding
 
 echo Adding project \#$lastnum $newfilename
 
