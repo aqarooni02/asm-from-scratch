@@ -5,11 +5,11 @@ section .text
 print_str:
     mov rcx, rdi        ; stores starting pointer
     xor rdx, rdx        ; reset rdx to 0
-    cmp [rcx], 0
+    cmp byte [rcx], 0   ; compare "byte" needed
     jz .donecount
     .loop:
         inc rcx
-        cmp [rcx], 0
+        cmp byte [rcx], 0
         jnz .loop
     .donecount:
         mov rax, 1      ; syscall write
