@@ -1,8 +1,12 @@
-# Build artifacts
+# Lesson binaries have no file extension, so ignore all extensionless
+# files, then re-include the sources / docs / build files we track.
+# (If you ever add another extensionless helper, add a "!name" line.)
+*
+!*/
+!*.*
+!Makefile*
+!.gitignore
+
+# Object files and default linker output (have extensions, so re-ignore)
 *.o
-01-hello-gas/hi
-02-hello-nasm/hi
-03-fibonacci/fib
-04-print-int/print_int
-05-max-of-three/maxofthree
 a.out
