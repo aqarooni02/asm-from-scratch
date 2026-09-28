@@ -1,0 +1,11 @@
+NAME=read-lines
+$(NAME): $(NAME).o main.c
+	gcc -no-pie main.c $(NAME).o -o $(NAME)
+
+$(NAME).o: $(NAME).asm
+	nasm -felf64 $(NAME).asm -o $(NAME).o
+
+clean:
+	rm -f $(NAME) $(NAME).o
+
+.PHONY: clean

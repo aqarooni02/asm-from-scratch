@@ -15,6 +15,7 @@ functions callable from C.
 | 06 | `06-print-str/` | `print_str(char *s)` — scan for `\0`, length via pointer subtraction, `sys_write` |
 | 07 | `07-str-len/` | `str_len(char *s)` — same scan, return count in `rax` instead of printing |
 | 08 | `08-print-int-signed/` | `print_int_signed(int64_t)` — `cqo`/`idiv`, negate remainders (`INT64_MIN`-safe), prepend `'-'`, auto-newline |
+| 09 | `09-read-lines/` | `read_line(buf, cap)` — single `sys_read` + `'\n'` scan, NUL guarantee, overflow drain loop |
 
 Goal: a minimal no-libc kit — string/memory/number helpers on raw syscalls so
 future lessons can drop `printf`/`gcc` and link with `ld` only.
@@ -23,7 +24,6 @@ future lessons can drop `printf`/`gcc` and link with `ld` only.
 
 | # | Lesson | Why it's needed without libc |
 |---|--------|------------------------------|
-| 09 | `read-line` — `sys_read` stdin wrapper | Replaces `scanf`/`fgets`; unblocks interactive input |
 | 10 | `atoi` — `str_to_int(char *s)` | Parse numbers from input/args without `atoi`/`strtol` |
 | 11 | `memcpy` / `memset` | Every buffer program needs raw memory ops once libc is gone |
 | 12 | `strcmp` / `strequ` | Arg parsing (`--help`), tests, any string logic |
@@ -60,6 +60,7 @@ make
 ./06-print-str/print-str
 ./07-str-len/str-len
 ./08-print-int-signed/print-int-signed
+echo hello | ./09-read-lines/read-lines
 
 # clean everything
 make clean
@@ -110,6 +111,7 @@ asm-from-scratch/
   06-print-str/       print-str.asm, main.c, Makefile, README.md
   07-str-len/        str-len.asm, main.c, Makefile, README.md
   08-print-int-signed/ print-int-signed.asm, main.c, Makefile, README.md
+  09-read-lines/      read-lines.asm, main.c, Makefile, README.md
 ```
 
 Each example folder has its own README with Build / Run / How it works.
