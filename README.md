@@ -72,6 +72,27 @@ make -C 04-print-int
 ./04-print-int/print_int
 ```
 
+## Starting a new lesson
+
+Run `./new.sh` from the repo root with the lesson name (hyphenated, since it
+becomes the `.asm` filename and the binary name):
+
+```sh
+./new.sh read-line
+# Adding project #09 read-line
+```
+
+That creates `09-read-line/` containing:
+- `read-line.asm` (empty, your assembly goes here),
+- `main.c` (empty C driver),
+- `Makefile` (copied from `Makefile_Template` with `NAME=read-line` prepended,
+  so `make` builds a binary called `read-line` and `make clean` removes it plus the `.o`).
+
+The number is picked automatically (highest existing `NN-` prefix + 1,
+zero-padded). With no argument it defaults to `unnamed`. Then write your code,
+add a `README.md` in the same Build / Run / How it works / Key instructions
+format as the other lessons, and add a row to the roadmap table above.
+
 ## Structure
 
 ```
